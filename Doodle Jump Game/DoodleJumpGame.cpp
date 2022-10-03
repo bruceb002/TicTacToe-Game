@@ -190,7 +190,7 @@ int main(int argc, const char ** argv[])
 
 	generatePlatforms(spritePlatform, texturePlatform, 0);
 
-	// after scaling, remember the middle and bottom position
+	// after scaling, remember its original (bottom-middle) position
 	doodlerInitPosition.x = spriteDoodler.getPosition().x;
 	doodlerInitPosition.y = spriteDoodler.getPosition().y;
 
