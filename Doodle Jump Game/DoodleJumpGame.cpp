@@ -209,6 +209,9 @@ int main(int argc, const char ** argv[])
 		sf::Event event;
 		while (window.pollEvent(event))
 		{
+			if(intersect(spritePlatform, spriteDoodler,velocity)) {
+				sound.play();
+			} 
 			switch (event.type) {
 				case sf::Event::Closed: {
 					window.close();
@@ -219,9 +222,6 @@ int main(int argc, const char ** argv[])
 					//set change flag to true so that jump base(x position) is updated
 					if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 					{
-						if(intersect(spritePlatform, spriteDoodler,velocity)) {
-							sound.play();
-						} 
 						sf::Vector2f new_pos(spriteDoodler.getGlobalBounds().left - DOODLE_XMOVE, spriteDoodler.getGlobalBounds().top);
 						spriteDoodler.setPosition(new_pos);
 						warp(spriteDoodler);
@@ -229,9 +229,6 @@ int main(int argc, const char ** argv[])
 					}
 					else if(sf::Keyboard::isKeyPressed (sf::Keyboard::Right))
 					{
-						if(intersect(spritePlatform, spriteDoodler,velocity)) {
-							sound.play();
-						} 
 						sf::Vector2f new_pos(spriteDoodler.getGlobalBounds().left + DOODLE_XMOVE, spriteDoodler.getGlobalBounds().top);
 						spriteDoodler.setPosition(new_pos);
 						warp(spriteDoodler);
