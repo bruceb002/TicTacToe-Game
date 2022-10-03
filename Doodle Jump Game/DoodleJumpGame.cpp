@@ -223,11 +223,12 @@ int main(int argc, const char ** argv[])
 					{
 						if(!intersect(spritePlatform, spriteDoodler,velocity)) {
 							play_sound = false;
+						} else {
+							play_sound = true;
 						}
 						if(play_sound) {
 							sound.play();
 						}
-						sound_count += 1;
 						sf::Vector2f new_pos(spriteDoodler.getGlobalBounds().left - DOODLE_XMOVE, spriteDoodler.getGlobalBounds().top);
 						spriteDoodler.setPosition(new_pos);
 						warp(spriteDoodler);
@@ -237,11 +238,12 @@ int main(int argc, const char ** argv[])
 					{
 						if(!intersect(spritePlatform, spriteDoodler,velocity)) {
 							play_sound = false;
+						} else {
+							play_sound = true;
 						}
 						if(play_sound) {
 							sound.play();
 						}
-						sound_count += 1;
 						sf::Vector2f new_pos(spriteDoodler.getGlobalBounds().left + DOODLE_XMOVE, spriteDoodler.getGlobalBounds().top);
 						spriteDoodler.setPosition(new_pos);
 						warp(spriteDoodler);
