@@ -204,11 +204,11 @@ int main(int argc, const char ** argv[])
 	sf::Vector2f doodlerOriginalPosition = spriteDoodler.getPosition(); //remember original position
 	int velocity = REBOUND_VELOCITY;
 	sf::Clock clock;
-	int sound_count;
+	bool play_sound;
 	while (window.isOpen())
 	{
 		sf::Event event;
-		sound_count = 0;
+		play_sound = true;
 		while (window.pollEvent(event))
 		{
 			switch (event.type) {
@@ -221,10 +221,10 @@ int main(int argc, const char ** argv[])
 					//set change flag to true so that jump base(x position) is updated
 					if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
 					{
-						if(intersect(spritePlatform, spriteDoodler,velocity) == true) {
-							sound_count = 0;
+						if(!intersect(spritePlatform, spriteDoodler,velocity)) {
+							play_sound = false;
 						}
-						if(sound_count == 0) {
+						if(play_sound) {
 							sound.play();
 						}
 						sound_count += 1;
@@ -235,10 +235,10 @@ int main(int argc, const char ** argv[])
 					}
 					else if(sf::Keyboard::isKeyPressed (sf::Keyboard::Right))
 					{
-						if(intersect(spritePlatform, spriteDoodler,velocity) == true) {
-							sound_count = 0;
+						if(!intersect(spritePlatform, spriteDoodler,velocity)) {
+							play_sound = false;
 						}
-						if(sound_count == 0) {
+						if(play_sound) {
 							sound.play();
 						}
 						sound_count += 1;
