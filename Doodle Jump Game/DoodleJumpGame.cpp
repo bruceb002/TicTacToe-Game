@@ -82,18 +82,18 @@ sf::Sprite createSprite(sf::Texture& texture, sf::String imageName, int imageWid
 	return sprite;
 }
 
-/*This method generates platforms semi-randomly so the Doodle will always be
+/*This method generates platforms in a random manner so the Doodle will always be
 able to reach the next platform, both in the x and y direction. It also
-constrains the platforms so they can only be generated on screen.
+puts constraints on the platforms so they can only be generated on screen.
  */
 void generatePlatforms(std::vector<sf::Sprite>& spritePlatform,sf::Texture& texturePlatform, int vectorPosition) {
 
 	int i = vectorPosition+1;
 
 	while (spritePlatform[i-1].getPosition().y>0) {
-		/**
-		 * creates variables that constrain the platform generation based on how far the
-		 * Doodle can move in the the previous platform, minimal movement is the platform width, either left or right.
+		/*
+		 * creates variables that constrain the platform generation based on how far the Doodle can move 
+		 * in the the previous platform, minimal movement is the platform width, either left or right.
 		 */
 		int xMovement = (HORIZONTAL_MOVEMENT- (int) PLATFORM_WIDTH - rand() % ((HORIZONTAL_MOVEMENT- (int)PLATFORM_WIDTH) * 2));
 		float n;
@@ -108,8 +108,7 @@ void generatePlatforms(std::vector<sf::Sprite>& spritePlatform,sf::Texture& text
 		if (j < 0) {
 			break;
 		}
-		// these next two if statements constrain the platforms so they cannot generate
-		// off-screen.
+		// these next two if statements puts constraints on the platforms so they cannot generate off-screen.
 		if (n <= 0) {
 			n = spritePlatform[i - 1].getPosition().x + PLATFORM_WIDTH;
 		}
@@ -201,8 +200,8 @@ int main(int argc, const char ** argv[])
 	sf::Sound sound;
 	sound.setBuffer(buffer);
 
-	bool change = false; //when left/right key pressed, set this flag to ture, use to control bounce
-	sf::Vector2f doodlerOriginalPosition = spriteDoodler.getPosition(); //remember orignal position
+	bool change = false; //when left or right key pressed, set this flag to true, used to control bounce
+	sf::Vector2f doodlerOriginalPosition = spriteDoodler.getPosition(); //remember original position
 	int velocity = REBOUND_VELOCITY;
 	sf::Clock clock;
 	while (window.isOpen())
