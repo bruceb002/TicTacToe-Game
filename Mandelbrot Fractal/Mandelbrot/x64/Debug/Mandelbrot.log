@@ -1,3 +1,0 @@
-﻿  main.cpp
-c:\users\bruce\source\repos\mandelbrot\mandelbrot\main.cpp(45): warning C4244: 'argument': conversion from 'double' to 'sf::Uint8', possible loss of data
-  Mandelbrot.vcxproj -> C:\Users\bruce\source\repos\Mandelbrot\x64\Debug\Mandelbrot.exe

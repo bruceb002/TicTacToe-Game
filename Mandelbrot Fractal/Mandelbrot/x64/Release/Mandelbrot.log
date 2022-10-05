@@ -1,6 +1,0 @@
-﻿  main.cpp
-c:\users\bruce\source\repos\mandelbrot\mandelbrot\main.cpp(45): warning C4244: 'argument': conversion from 'double' to 'sf::Uint8', possible loss of data
-  Generating code
-  All 43 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
-  Finished generating code
-  Mandelbrot.vcxproj -> C:\Users\bruce\source\repos\Mandelbrot\x64\Release\Mandelbrot.exe
